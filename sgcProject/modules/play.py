@@ -184,7 +184,7 @@ async def ee(client, message):
     if stats:
         await message.reply(stats)
     else:
-        await message.reply("**Silahkan Nyalakan dulu VCG nya!**")
+        await message.reply("**VCGNYA NYALAIN DULU WOI !**")
 
 
 @Client.on_message(filters.command("player") & filters.group & ~filters.edited)
@@ -206,7 +206,7 @@ async def settings(client, message):
         else:
             await message.reply(stats, reply_markup=r_ply("play"))
     else:
-        await message.reply("**Silahkan Nyalakan dulu VCG nya!**")
+        await message.reply("**VCGNYA NYALAIN DULU WOI !**")
 
 
 @Client.on_message(
@@ -221,7 +221,7 @@ async def hfmm(_, message):
         return
     if len(message.command) != 2:
         await message.reply_text(
-            "**gw hanya mengenali** `/musicplayer on` **dan** `/musicplayer off`"
+            "**gw hanya mengenali PERINTAH** `/musicplayer on` **dan** `/musicplayer off`"
         )
         return
     status = message.text.split(None, 1)[1]
@@ -482,11 +482,11 @@ async def play(_, message: Message):
         # lmoa = await client.get_chat_member(chid,wew)
     except:
         await lel.edit(
-            f"<i>{user.first_name} terkena banned dari Grup ini, Minta admin untuk mengirim perintah `/play` untuk pertama kalinya atau tambahkan @{ASSISTANT_NAME} secara manual</i>"
+            f"<i>{user.first_name} GW DI BAN WOI ZZZ, Minta admin untuk mengirim perintah `/play` untuk pertama kalinya atau tambahkan @{ASSISTANT_NAME} secara manual</i>"
         )
         return
     text_links=None
-    await lel.edit("🔄 **Sedang Mencari Lagu**")
+    await lel.edit("🔄 **LAGI NYARI WOI SABAR**")
     if message.reply_to_message:
         entities = []
         toxt = message.reply_to_message.text or message.reply_to_message.caption
@@ -750,7 +750,7 @@ async def ytplay(_, message: Message):
             f"<i>{user.first_name} terkena banned dari Grup ini, Minta admin untuk mengirim perintah `/play` untuk pertama kalinya atau tambahkan @{ASSISTANT_NAME} secara manual</i>"
         )
         return
-    await lel.edit("🔎 **Sedang Mencari Lagu**")
+    await lel.edit("🔎 **LAGI NYARI LAGU SABAR**")
     user_id = message.from_user.id
     user_name = message.from_user.first_name
      
@@ -898,7 +898,7 @@ async def deezer(client: Client, message_: Message):
     queryy = text[1]
     query = queryy
     res = lel
-    await res.edit(f"**Sedang Mencari Lagu** `{query}` **dari deezer**")
+    await res.edit(f"**LAGI NYARI LAGUNYA SABAR** `{query}` **dari deezer**")
     try:
         songs = await arq.deezer(query,1)
         if not songs.ok:
@@ -911,12 +911,12 @@ async def deezer(client: Client, message_: Message):
         thumbnail = "https://telegra.ph/file/68af50ef043dd26466c84.png"
 
     except:
-        await res.edit("**Tidak Ditemukan Lagu Apa Pun!**")
+        await res.edit("**LAGUNYA GA TERKENAL GW GA TAU!**")
         return
     try:    
         duuration= round(duration / 60)
         if duuration > DURATION_LIMIT:
-            await cb.message.edit(f"**Musik lebih lama dari** `{DURATION_LIMIT}` **menit tidak diperbolehkan diputar**")
+            await cb.message.edit(f"**Musik lebih lama dari** `{DURATION_LIMIT}` **menit GA BISA DI NYANYIIN NTAR LAG**")
             return
     except:
         pass    
@@ -939,7 +939,7 @@ async def deezer(client: Client, message_: Message):
         loc = file_path
         appendable = [s_name, r_by, loc]
         qeue.append(appendable)
-        await res.edit_text(f"🎼 **Lagu yang Anda minta Sedang Antri di posisi** `{position}`")
+        await res.edit_text(f"🎼 **Lagu yang LU REQUEST Antri di posisi** `{position}`")
     else:
         await res.edit_text(f"🎼️ **Playing...**")
 
@@ -962,7 +962,7 @@ async def deezer(client: Client, message_: Message):
         chat_id=message_.chat.id,
         reply_markup=keyboard,
         photo="final.png",
-        caption=f"🎼️ **Sedang Memutar Lagu** [{title}]({url}) **Via Deezer**",
+        caption=f"🎼️ **Lagi putar lagu** [{title}]({url}) **Via Deezer**",
     )
     os.remove("final.png")
 
@@ -982,7 +982,7 @@ async def lol_cb(b, cb):
         return
     useer_id = int(useer_id)
     if cb.from_user.id != useer_id:
-        await cb.answer("Anda bukan orang yang meminta untuk memutar lagu!", show_alert=True)
+        await cb.answer("lu siapa ngatur gw !", show_alert=True)
         return
     await cb.message.edit("**Processing**")
     x=int(x)
